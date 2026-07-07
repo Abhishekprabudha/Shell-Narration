@@ -1,0 +1,23 @@
+1
+00:00:01,000 --> 00:00:11,000
+This is the nerve centre we would build for Shell. One live view of the network: active trips, on-time delivery, open exceptions, DG risk holds and ePOD capture. Here, the platform has flagged a trip approaching a school-zone geofence. Let's open it.
+
+2
+00:00:13,000 --> 00:00:24,000
+Every trip carries a live route-risk score, with the exact contributing factors. Alongside it: driver readiness, vehicle and load checks, and ETA confidence. The risk is high, so we review the hold.
+
+3
+00:00:26,000 --> 00:00:36,000
+The AI recommends a hold and reroute, with the impact quantified before anyone commits. A human controller approves. The decision is logged, instantly and immutably.
+
+4
+00:00:38,000 --> 00:00:46,000
+The reroute executes around the geofence. Driver notified, site rescheduled, customer informed. Automatically.
+
+5
+00:00:48,000 --> 00:00:57,000
+And when the trip closes, the evidence pack has already built itself: permits, inspections, ePOD, reconciliation, invoice match. The scorecard proves the outcomes.
+
+6
+00:00:58,000 --> 00:01:03,000
+One nerve centre. Every trip governed.
