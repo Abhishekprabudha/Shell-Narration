@@ -1,0 +1,85 @@
+name: Build narrated Shell DG logistics video
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  # User-requested alias: gb-en-ryan-neural
+  # Normalized Microsoft Neural voice ID used by edge-tts:
+  TTS_ENGINE: edge-tts
+  EDGE_TTS_VOICE: en-GB-RyanNeural
+  EDGE_TTS_RATE: +18%
+  EDGE_TTS_VOLUME: +0%
+  EDGE_TTS_PITCH: +0Hz
+
+jobs:
+  build:
+    name: Generate MP3 and final MP4
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install system media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate Ryan Neural narration MP3
+        run: python scripts/generate_narration.py
+
+      - name: Merge narration with source MP4
+        run: bash scripts/mux_final_video.sh
+
+      - name: Validate final video
+        run: |
+          test -f assets/audio/narration/AIONOS_DG_Narration_Aligned_64s.mp3
+          test -f assets/video/final/AIONOS_DG_Platform_Demo_Narrated.mp4
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 assets/video/final/AIONOS_DG_Platform_Demo_Narrated.mp4
+
+      - name: Upload final media artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shell-dg-logistics-narrated-video
+          path: |
+            assets/audio/narration/AIONOS_DG_Narration_Aligned_64s.mp3
+            assets/audio/mix/AIONOS_DG_Final_Audio_Mix.wav
+            assets/video/final/AIONOS_DG_Platform_Demo_Narrated.mp4
+            captions/AIONOS_DG_Platform_Demo.en.srt
+            captions/AIONOS_DG_Platform_Demo.en.vtt
+          retention-days: 30
+
+      - name: Configure GitHub Pages
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages site
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy GitHub Pages site
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: actions/deploy-pages@v4
