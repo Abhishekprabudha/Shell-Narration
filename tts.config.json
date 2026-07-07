@@ -1,0 +1,30 @@
+{
+  "preferred_engine": "edge-tts",
+  "preferred_voice": "en-GB-RyanNeural",
+  "requested_voice_alias": "gb-en-ryan-neural",
+  "voice_aliases": {
+    "gb-en-ryan-neural": "en-GB-RyanNeural",
+    "gb_en_ryan_neural": "en-GB-RyanNeural",
+    "en-gb-ryan-neural": "en-GB-RyanNeural",
+    "en-GB-RyanNeural": "en-GB-RyanNeural"
+  },
+  "edge_tts": {
+    "voice": "en-GB-RyanNeural",
+    "rate": "+18%",
+    "volume": "+0%",
+    "pitch": "+0Hz"
+  },
+  "fallback_espeak": {
+    "voice": "en-gb",
+    "speed": "225",
+    "pitch": "42",
+    "amplitude": "160"
+  },
+  "audio": {
+    "duration_seconds": 64,
+    "sample_rate": 48000,
+    "channels": 2,
+    "headroom_db": 2.0
+  },
+  "notes": "The requested gb-en-ryan-neural voice is normalized to Microsoft Edge/Azure Neural voice ID en-GB-RyanNeural. GitHub Actions uses edge-tts by default and falls back to eSpeak if the neural TTS service is unavailable."
+}

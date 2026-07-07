@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIONOS x Shell — DG Logistics Nerve Centre Demo</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #101c2f;
+      --text: #f7fbff;
+      --muted: #b7c2d1;
+      --accent: #f6c542;
+      --line: rgba(255,255,255,.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #162e52 0%, var(--bg) 38%, #050914 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    main { width: min(1180px, calc(100vw - 32px)); margin: 0 auto; padding: 44px 0 56px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-weight: 700; font-size: 12px; }
+    h1 { font-size: clamp(34px, 5vw, 64px); line-height: 1.02; margin: 16px 0 14px; max-width: 1000px; }
+    .lede { color: var(--muted); font-size: 19px; line-height: 1.55; max-width: 920px; margin: 0 0 28px; }
+    .video-card { background: rgba(16, 28, 47, .84); border: 1px solid var(--line); border-radius: 24px; padding: 16px; box-shadow: 0 24px 80px rgba(0,0,0,.35); }
+    video { width: 100%; display: block; border-radius: 16px; background: #000; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+    .tile { background: rgba(16,28,47,.68); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+    .tile strong { display: block; font-size: 26px; margin-bottom: 6px; color: var(--accent); }
+    .tile span { color: var(--muted); line-height: 1.45; }
+    .section { margin-top: 30px; background: rgba(16,28,47,.54); border: 1px solid var(--line); border-radius: 20px; padding: 22px; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    ol { margin: 0; padding-left: 22px; color: var(--muted); line-height: 1.7; }
+    .disclaimer { color: var(--muted); font-size: 14px; line-height: 1.6; margin-top: 18px; }
+    a { color: var(--accent); }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } main { padding-top: 28px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">AIONOS x Shell · Intracity Dangerous-Goods Logistics</div>
+    <h1>AI-assisted DG Logistics Nerve Centre</h1>
+    <p class="lede">A 64-second narrated product walkthrough showing live route-risk scoring, human-in-the-loop hold approvals, city rerouting, evidence capture and Shell-ready outcome governance.</p>
+
+    <section class="video-card" aria-label="Narrated demo video">
+      <video controls preload="metadata" poster="">
+        <source src="assets/video/final/AIONOS_DG_Platform_Demo_Narrated.mp4" type="video/mp4" />
+        <track src="captions/AIONOS_DG_Platform_Demo.en.vtt" kind="subtitles" srclang="en" label="English" default />
+        Your browser does not support HTML5 video.
+      </video>
+    </section>
+
+    <section class="grid" aria-label="Demo promise">
+      <div class="tile"><strong>Sense</strong><span>TMS, telematics, depot systems, ePOD, weather and road restrictions.</span></div>
+      <div class="tile"><strong>Decide</strong><span>Dynamic trip risk, ETA confidence, driver readiness and route exceptions.</span></div>
+      <div class="tile"><strong>Prove</strong><span>Permit, inspection, ePOD, reconciliation and audit evidence pack.</span></div>
+    </section>
+
+    <section class="section">
+      <h2>Walkthrough chapters</h2>
+      <ol>
+        <li>Command Centre — one live view of Shell’s city logistics network.</li>
+        <li>Trip View — route-risk score, contributing factors and readiness checks.</li>
+        <li>HITL Approvals — AI recommends a hold/reroute; human controller approves.</li>
+        <li>Live Reroute — geofence avoided; driver, site and customer updated.</li>
+        <li>Compliance & Scorecard — evidence pack and outcomes close the loop.</li>
+      </ol>
+      <p class="disclaimer">Demo data, trip IDs, risk scores and KPI values are illustrative and should be treated as synthetic pilot data until validated against Shell operational baselines.</p>
+    </section>
+  </main>
+</body>
+</html>

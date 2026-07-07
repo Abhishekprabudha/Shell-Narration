@@ -1,0 +1,22 @@
+{
+  "name": "aionos-shell-dg-logistics-narrated-demo",
+  "version": "1.1.0",
+  "private": true,
+  "description": "GitHub Pages-ready narrated demo video repo for the AIONOS x Shell intracity dangerous-goods logistics pitch.",
+  "scripts": {
+    "build:audio": "python3 scripts/generate_narration.py",
+    "build:video": "bash scripts/mux_final_video.sh",
+    "build": "npm run build:audio && npm run build:video",
+    "serve": "python3 -m http.server 8080",
+    "build:audio:ryan": "EDGE_TTS_VOICE=en-GB-RyanNeural TTS_ENGINE=edge-tts python3 scripts/generate_narration.py",
+    "build:video:ryan": "npm run build:audio:ryan && npm run build:video"
+  },
+  "keywords": [
+    "aionos",
+    "shell",
+    "dangerous-goods",
+    "logistics",
+    "narrated-demo",
+    "github-pages"
+  ]
+}

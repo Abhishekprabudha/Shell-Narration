@@ -1,0 +1,20 @@
+{
+  "project": "AIONOS x Shell DG Logistics Nerve Centre Narrated Demo",
+  "duration_seconds": 64,
+  "source_video": "assets/video/source/AIONOS_DG_Platform_Demo.mp4",
+  "generated_narration_mp3": "assets/audio/narration/AIONOS_DG_Narration_Aligned_64s.mp3",
+  "final_audio_mix": "assets/audio/mix/AIONOS_DG_Final_Audio_Mix.wav",
+  "final_video": "assets/video/final/AIONOS_DG_Platform_Demo_Narrated.mp4",
+  "captions": [
+    "captions/AIONOS_DG_Platform_Demo.en.vtt",
+    "captions/AIONOS_DG_Platform_Demo.en.srt"
+  ],
+  "tts": {
+    "requested_voice_alias": "gb-en-ryan-neural",
+    "normalized_voice_id": "en-GB-RyanNeural",
+    "preferred_engine": "edge-tts",
+    "local_fallback": "espeak"
+  },
+  "github_workflow": ".github/workflows/build-narrated-video.yml",
+  "notes": "Generated from the uploaded walkthrough markdown, aligned to the 64-second source MP4, and mixed over the original music/click audio bed. GitHub Actions rebuilds with en-GB-RyanNeural. Demo data is illustrative."
+}
